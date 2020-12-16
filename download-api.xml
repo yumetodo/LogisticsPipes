@@ -12,28 +12,37 @@
 	<property name="ocapi.dir"            value="${build.dir}/unpack/ocapi"/>
 	<property name="appeng.dir"           value="${build.dir}/unpack/appeng"/>
 
-	<property name="downloadserver"       value="http://rs485.theZorro266.com"/>
+	<!-- <property name="downloadserver"       value="http://rs485.theZorro266.com"/> -->
 	<property name="downloadserver.dir"   value="external/"/>
 	<property name="downloadserver.full"  value="${downloadserver}/${downloadserver.dir}"/>
 
-	<property name="forestry.filename"     value="forestry_1.7.10-4.2.11.59-api.zip"/>
-	<property name="ic2.filename"          value="industrialcraft-2-2.2.595-experimental-api.zip"/>
-	<property name="cc.filename"           value="ComputerCraftAPI1.64pr4.zip"/>
-	<property name="thaumcraft.filename"   value="Thaumcraft-1.7.2-4.1.1.14-api.zip"/>
-	<property name="ocapi.filename"        value="OpenComputers-MC1.7.10-1.5.22.46-api.zip"/>
-	<property name="appeng.filename"       value="appliedenergistics2-rv2-beta-14-api.zip"/>
-	<property name="bc.filename"           value="buildcraft-7.1.16-dev.jar"/>
+	<property name="forestry.filename"     value="forestry_1.7.10-4.2.11.59-api.jar"/>
+	<property name="ic2.filename"          value="industrialcraft-2-2.2.595-experimental-api.jar"/>
+	<property name="cc.filename"           value="ComputerCraft1.64.jar"/>
+	<property name="thaumcraft.filename"   value="Thaumcraft-1.7.10-4.2.3.5-api.zip"/>
+	<property name="ocapi.filename"        value="OpenComputers-MC1.7.10-1.5.22.46-universal.jar"/>
+	<property name="appeng.filename"       value="appliedenergistics2-rv2-stable-1-api.jar"/>
+	<property name="bc.filename"           value="buildcraft-7.1.23-dev.jar"/>
 
 	<target name="download">
 		<mkdir dir="${download.dir}"/>
 		<echo message="Download started"/>
-		<get src="${downloadserver.full}${forestry.filename}" dest="${download.dir}" usetimestamp="True"/>
-		<get src="${downloadserver.full}${ic2.filename}" dest="${download.dir}" usetimestamp="True"/>
-		<get src="${downloadserver.full}${cc.filename}" dest="${download.dir}" usetimestamp="True"/>
-		<get src="${downloadserver.full}${thaumcraft.filename}" dest="${download.dir}" usetimestamp="True"/>
-		<get src="${downloadserver.full}${ocapi.filename}" dest="${download.dir}" usetimestamp="True"/>
-		<get src="${downloadserver.full}${appeng.filename}" dest="${download.dir}" usetimestamp="True"/>
-		<get src="${downloadserver.full}${bc.filename}" dest="${download.dir}" usetimestamp="True"/>
+		<!-- <get src="${downloadserver.full}${forestry.filename}" dest="${download.dir}" usetimestamp="True"/> -->
+		<!-- http://jenkins.ic2.player.to/job/Forestry/ -->
+		<get src="http://jenkins.ic2.player.to/job/Forestry/59/artifact/build/dist/forestry_1.7.10-4.2.11.59-api.jar" dest="${download.dir}" usetimestamp="True"/>
+		<!-- http://jenkins.ic2.player.to/job/IC2_experimental/lastSuccessfulBuild/artifact/build/libs/industrialcraft-2-2.2.828-experimental-api.jar -->
+		<!-- <get src="${downloadserver.full}${ic2.filename}" dest="${download.dir}" usetimestamp="True"/> -->
+		<get src="http://jenkins.ic2.player.to/job/IC2_experimental/595/artifact/build/libs/industrialcraft-2-2.2.595-experimental-api.jar" dest="${download.dir}" usetimestamp="True"/>
+		<!-- <get src="${downloadserver.full}${cc.filename}" dest="${download.dir}" usetimestamp="True"/> -->
+		<!-- https://www.curseforge.com/minecraft/mc-mods/computercraft/files -->
+		<get src="https://media.forgecdn.net/files/2215/320/ComputerCraft1.64.jar" dest="${download.dir}" usetimestamp="True"/>
+		<!-- <get src="${downloadserver.full}${thaumcraft.filename}" dest="${download.dir}" usetimestamp="True"/> -->
+		<get src="https://github.com/MightyPirates/OpenComputers/releases/download/v1.5.22/OpenComputers-MC1.7.10-1.5.22.46-universal.jar" dest="${download.dir}" usetimestamp="True"/>
+		<!-- <get src="${downloadserver.full}${appeng.filename}" dest="${download.dir}" usetimestamp="True"/> -->
+		<!-- https://ae-mod.info/builds/appliedenergistics2-rv2-stable-1-api.jar -->
+		<get src="https://ae-mod.info/builds/${appeng.filename}" dest="${download.dir}" usetimestamp="True"/>
+		<!-- <get src="${downloadserver.full}${bc.filename}" dest="${download.dir}" usetimestamp="True"/> -->
+		<get src="https://mod-buildcraft.com/releases/BuildCraft/7.1.23/buildcraft-7.1.23-dev.jar" dest="${download.dir}" usetimestamp="True"/>
 		<echo message="Download finished"/>
 	</target>
 
