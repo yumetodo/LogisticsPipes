@@ -21,11 +21,11 @@
 			</fileset>
 		</unzip>
 		<!-- Pull in ant-contrib for if task -->
-		<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		<!-- <taskdef resource="net/sf/antcontrib/antcontrib.properties">
 			<classpath>
 				<pathelement location="${antcontlib.dir}/ant-contrib/ant-contrib-${antcont.version}.jar"/>
 			</classpath>
-		</taskdef>
+		</taskdef> -->
 	</target>
 
 	<target name="loadFingerprints" depends="loadAntContrib, sourceMainJava">
