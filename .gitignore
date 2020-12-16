@@ -1,22 +1,57 @@
-/*
+# /*
 
-!/common
-!/dummy
-!/gradle
-!/resources
-!/style
+# !/common
+# !/dummy
+# !/gradle
+# !/resources
+# !/style
 
-!/.gitignore
-!/.travis.yml
-!/LICENSE.md
-!/LogisticsPipes_dummy.jar
-!/README.md
-!/BUILDING.md
-!/build.gradle
-!/buildmessages.pylist
-!/download-api.xml
-!/expect.tcl
-!/gradlew
-!/gradlew.bat
-!/build-ant.xml
-!/build-bc61.gradle
+# !/.gitignore
+# !/.travis.yml
+# !/LICENSE.md
+# !/LogisticsPipes_dummy.jar
+# !/README.md
+# !/BUILDING.md
+# !/build.gradle
+# !/buildmessages.pylist
+# !/download-api.xml
+# !/expect.tcl
+# !/gradlew
+# !/gradlew.bat
+# !/build-ant.xml
+# !/build-bc61.gradle
+# mac os
+.DS_Store
+
+# forge / gradle
+.gradle
+build/*
+out/
+classes/
+run/
+
+# eclipse
+*.launch
+.settings
+.classpath
+.project
+eclipse
+
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# vscode
+
+.settings/
+.vscode/
+bin/
+.classpath
+
+api/*
+# Thaumcraft
+# from: https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/1292130-thaumcraft-6-1-beta26-no-longer-being-developed
+!build/download
+build/download/*
+!build/download/Thaumcraft-1.7.10-4.2.3.5-api.zip
