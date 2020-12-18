@@ -17,11 +17,8 @@ buildscript {
     }
 }
 
-repositories {
-	maven {
-		name 'CB Repo'
-		url "https://chickenbones.net/maven/"
-	}
+plugins {
+    id "de.undercouch.download" version "4.1.1"
 }
 
 ant.importBuild 'download-api.xml'
@@ -156,6 +153,22 @@ artifacts {
 	archives deobfJar
 	archives sourceJar
 	archives jar
+}
+
+task downloadLang(type: Download){
+    src 'https://github.com/RS485/LogisticsPipes-Language/archive/master.zip'
+    dest new File("${buildDir}/download", 'language.zip')
+}
+
+task downloadAndUnzipFile(dependsOn: downloadLang, type: Copy) {
+    from zipTree(downloadLang.dest)
+    into "${buildDir}/resources/assets/logisticspipes/lang"
+}
+
+task integrateLang(dependsOn: downloadAndUnzipFile, type: Delete) {
+    delete fileTree("${buildDir}/resources/assets/logisticspipes/lang") {
+        exclude '**/*.lang'
+    }
 }
 
 tasks.compileApiJava.dependsOn('extract')

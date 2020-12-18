@@ -14,56 +14,24 @@
 
 	<target name="loadAntContrib">
 		<mkdir dir="${download.dir}"/>
-		<get src="https://repo1.maven.org/maven2/ant-contrib/ant-contrib/1.0b3/ant-contrib-${antcont.version}.jar" dest="${download.dir}" usetimestamp="True"/>
+		<get src="https://repo1.maven.org/maven2/ant-contrib/ant-contrib/${antcont.version}/ant-contrib-${antcont.version}.jar" dest="${download.dir}" usetimestamp="True"/>
 		<unzip dest="${antcontlib.dir}" failOnEmptyArchive="true">
 			<fileset dir="${download.dir}">
 				<include name="ant-contrib-${antcont.version}.jar"/>
 			</fileset>
 		</unzip>
 		<!-- Pull in ant-contrib for if task -->
-		<!-- <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		<taskdef resource="net/sf/antcontrib/antlib.xml">
 			<classpath>
 				<pathelement location="${antcontlib.dir}/ant-contrib/ant-contrib-${antcont.version}.jar"/>
 			</classpath>
-		</taskdef> -->
+		</taskdef>
 	</target>
 
 	<target name="loadFingerprints" depends="loadAntContrib, sourceMainJava" if="${file::exists('${sign.dir}/.fingerprint')}">
 		<echo message="Loading FingerPrint"/>
 		<loadfile property="fingerprint" srcFile="${sign.dir}/.fingerprint"/>
 		<replace file="${build.dir}/sources/java/logisticspipes/LogisticsPipes.java" token="%------------CERTIFICATE-SUM-----------%" value='*/ certificateFingerprint="${fingerprint}", /*'/>
-	</target>
-
-	<target name="downloadLang" depends="loadAntContrib">
-		<trycatch>
-			<try>
-				<echo message="Download Language"/>
-				<get src="${languageDownload}" dest="${download.dir}/language.zip"/>
-			</try>
-			<catch>
-				<fail>Failed to Download Language.</fail>
-			</catch>
-		</trycatch>
-	</target>
-
-	<target name="integrateLang" depends="downloadLang">
-		<echo message="Integrating Language"/>
-		<unzip dest="${download.dir}/language/" failOnEmptyArchive="true">
-			<fileset dir="${download.dir}">
-				<include name="language.zip"/>
-			</fileset>
-			<mapper type="flatten"/>
-			<patternset>
-				<include name="**/**.lang"/>
-				<exclude name="**/en_US.lang"/>
-			</patternset>
-		</unzip>
-		<copy todir="${resource.dir}/assets/logisticspipes/lang/">
-			<fileset dir="${download.dir}/language/">
-				<include name="**.lang"/>
-			</fileset>
-		</copy>
-		<delete dir="${download.dir}/language/"/>
 	</target>
 
 	<target name="signJars" depends="loadFingerprints, deobfJar, sourceJar, jar"  if="${file::exists('${sign.dir}/.fingerprint')}">
