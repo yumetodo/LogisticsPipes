@@ -10,20 +10,15 @@ import net.minecraftforge.common.util.ForgeDirection;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import lombok.experimental.Accessors;
 
 @Data
-@RequiredArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
 public class LaserData {
 
-	@NonNull
 	private int posX;
-	@NonNull
 	private int posY;
-	@NonNull
 	private int posZ;
 	@NonNull
 	private ForgeDirection dir;
@@ -32,6 +27,14 @@ public class LaserData {
 	private boolean finalPipe = true;
 	private boolean startPipe = false;
 	private int length = 1;
+	public LaserData(final int posX, final int posY, final int posZ, @NonNull ForgeDirection dir, @NonNull EnumSet<PipeRoutingConnectionType> connectionType)
+	{
+		this.posX = posX;
+		this.posY = posY;
+		this.posZ = posZ;
+		this.dir = dir;
+		this.connectionType = connectionType;
+	}
 
 	public void writeData(DataOutputStream data) throws IOException {
 		data.writeInt(posX);
