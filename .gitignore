@@ -50,8 +50,3 @@ bin/
 .classpath
 
 api/*
-# Thaumcraft
-# from: https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/1292130-thaumcraft-6-1-beta26-no-longer-being-developed
-!build/download
-build/download/*
-!build/download/Thaumcraft-1.7.10-4.2.3.5-api.zip
