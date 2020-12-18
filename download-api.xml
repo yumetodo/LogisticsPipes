@@ -15,6 +15,7 @@
 	<!-- <property name="downloadserver"       value="http://rs485.theZorro266.com"/> -->
 	<property name="downloadserver.dir"   value="external/"/>
 	<property name="downloadserver.full"  value="${downloadserver}/${downloadserver.dir}"/>
+	<property name="cbserver"             value="https://chickenbones.net/maven/codechicken/"/>
 
 	<property name="forestry.filename"     value="forestry_1.7.10-4.2.11.59-api.jar"/>
 	<property name="ic2.filename"          value="industrialcraft-2-2.2.595-experimental-api.jar"/>
@@ -43,6 +44,9 @@
 		<get src="https://ae-mod.info/builds/${appeng.filename}" dest="${download.dir}" usetimestamp="True"/>
 		<!-- <get src="${downloadserver.full}${bc.filename}" dest="${download.dir}" usetimestamp="True"/> -->
 		<get src="https://mod-buildcraft.com/releases/BuildCraft/7.1.23/buildcraft-7.1.23-dev.jar" dest="${download.dir}" usetimestamp="True"/>
+		<get src="${cbserver}/NotEnoughItems/1.7.10-1.0.5.111/NotEnoughItems-1.7.10-1.0.5.111-dev.jar" dest="${download.dir}" usetimestamp="True"/>
+		<get src="${cbserver}/CodeChickenCore/1.7.10-1.0.7.46/CodeChickenCore-1.7.10-1.0.7.46-dev.jar" dest="${download.dir}" usetimestamp="True"/>
+		<get src="${cbserver}/EnderStorage/1.7.10-1.4.7.36/EnderStorage-1.7.10-1.4.7.36-dev.jar" dest="${download.dir}" usetimestamp="True"/>
 		<echo message="Download finished"/>
 	</target>
 
