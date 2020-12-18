@@ -21,7 +21,7 @@
 	<property name="ic2.filename"          value="industrialcraft-2-2.2.595-experimental-api.jar"/>
 	<property name="cc.filename"           value="ComputerCraft1.64.jar"/>
 	<property name="thaumcraft.filename"   value="Thaumcraft-1.7.10-4.2.3.5-api.zip"/>
-	<property name="ocapi.filename"        value="OpenComputers-MC1.7.10-1.5.22.46-universal.jar"/>
+	<property name="ocapi.filename"        value="OpenComputers-MC1.7.10-1.5.22.46-api.jar"/>
 	<property name="appeng.filename"       value="appliedenergistics2-rv2-stable-1-api.jar"/>
 	<property name="bc.filename"           value="buildcraft-7.1.23-dev.jar"/>
 
@@ -38,7 +38,7 @@
 		<!-- https://www.curseforge.com/minecraft/mc-mods/computercraft/files -->
 		<get src="https://media.forgecdn.net/files/2215/320/ComputerCraft1.64.jar" dest="${download.dir}" usetimestamp="True"/>
 		<!-- <get src="${downloadserver.full}${thaumcraft.filename}" dest="${download.dir}" usetimestamp="True"/> -->
-		<get src="https://github.com/MightyPirates/OpenComputers/releases/download/v1.5.22/OpenComputers-MC1.7.10-1.5.22.46-universal.jar" dest="${download.dir}" usetimestamp="True"/>
+		<get src="https://maven.cil.li/li/cil/oc/OpenComputers/MC1.7.10-1.5.22.46/OpenComputers-MC1.7.10-1.5.22.46-api.jar" dest="${download.dir}" usetimestamp="True"/>
 		<!-- <get src="${downloadserver.full}${appeng.filename}" dest="${download.dir}" usetimestamp="True"/> -->
 		<!-- https://ae-mod.info/builds/appliedenergistics2-rv2-stable-1-api.jar -->
 		<get src="https://ae-mod.info/builds/${appeng.filename}" dest="${download.dir}" usetimestamp="True"/>
