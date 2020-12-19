@@ -158,6 +158,7 @@ artifacts {
 task downloadLang(type: Download){
     src 'https://github.com/RS485/LogisticsPipes-Language/archive/master.zip'
     dest new File("${buildDir}/download", 'language.zip')
+    onlyIfModified true
 }
 
 task downloadAndUnzipFile(dependsOn: downloadLang, type: Copy) {
