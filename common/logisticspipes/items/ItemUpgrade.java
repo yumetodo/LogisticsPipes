@@ -310,7 +310,7 @@ public class ItemUpgrade extends LogisticsItem {
 		icons[28] = par1IIconRegister.registerIcon("logisticspipes:itemUpgrade/OpaqueUpgrade");
 		icons[29] = par1IIconRegister.registerIcon("logisticspipes:itemUpgrade/CraftingCleanup");
 		icons[30] = par1IIconRegister.registerIcon("logisticspipes:itemUpgrade/LogicController");
-		icons[31] = par1IIconRegister.registerIcon("logisticspipes:itemUpgrade/UpgradeModule");
+		icons[31] = par1IIconRegister.registerIcon("logisticspipes:itemUpgrade/module_upgrade");
 	}
 
 	@Override
