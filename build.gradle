@@ -134,6 +134,13 @@ task deobfJar(type: Jar, dependsOn: 'jar') {
     }
 }
 
+// Ensures that the encoding of source files is set to UTF-8, see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
 task sourceJar(type: Jar, dependsOn: 'jar') {
 	from sourceSets.main.allSource
 	classifier = 'src'
