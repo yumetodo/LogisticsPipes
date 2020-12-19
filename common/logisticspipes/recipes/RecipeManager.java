@@ -1025,6 +1025,18 @@ public class RecipeManager {
 				Character.valueOf('b'), "dyeWhite",
 			});
 
+			RecipeManager.craftingManager.addRecipe(new ItemStack(LogisticsPipes.UpgradeItem, 1, ItemUpgrade.UPGRADE_MODULE_UPGRADE), CraftingDependency.Upgrades, new Object[] {
+				false,
+				"RnR",
+				"gCg",
+				"PnP",
+				Character.valueOf('C'), parts.getChipTear2(),
+				Character.valueOf('R'), Items.redstone,
+				Character.valueOf('g'), Items.gold_ingot,
+				Character.valueOf('n'), Items.gold_nugget,
+				Character.valueOf('P'), Items.paper
+			});
+
 			/*
 			 * added by Chaos234  - Date: 20150620
 			 */
