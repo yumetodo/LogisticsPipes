@@ -1,5 +1,9 @@
 # LogisticsPipes
 
+![Java CI with Gradle](https://github.com/yumetodo/LogisticsPipes/workflows/Java%20CI%20with%20Gradle/badge.svg)
+
+This is a fork of Logistics Pipes targeting Minecraft 1.7.10 inclueds build script fix and small fix for mod.
+
 Logistics Pipes is an extensive overhaul of the Buildcraft pipe system. It allows for better distribution of items via pipes, more organised stockkeeping and easier automated crafting.
 
 Look into the [Minecraft Forum Thread](http://www.minecraftforum.net/topic/1831791-) for more information and recent downloads.
@@ -15,10 +19,6 @@ Credits for the idea and basic code goes to Krapht.
 ## Translate
 
 See [this repo](https://github.com/RS485/LogisticsPipes-Language) for translations.
-
-## Builds
-
-See our [Jenkins](http://ci.thezorro266.com/view/Logistics Pipes/).
 
 ## Contact
 

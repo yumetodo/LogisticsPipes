@@ -36,8 +36,8 @@ practice to actually fork the repository (yeah you need a GitHub account and yes
 it is free) and clone your own copy. With the GitHub App cloning your own copy
 is even easier as well.
 
-The git command line is `git clone https://github.com/RS485/LogisticsPipes.git`
-where you can replace RS485 by your own user name, if you forked the repository.
+The git command line is `git clone https://github.com/yumetodo/LogisticsPipes.git`
+where you can replace yumetodo by your own user name, if you forked the repository.
 
 ### Development environment
 
@@ -52,11 +52,12 @@ that with gradle you only have two options:
 
 * `gradlew eclipse` for Eclipse
 * `gradlew idea` for IntelliJ IDEA
+* `gradlew extract` for other env
 
 Then after opening the newly created project files with your IDE you need to add
 the folders `api` and `dummy` to your list of source folders. You may need to
 specify your Java JDK in the IDE as well. Right now we use Java 8 for
-development with Java 6 compliance.
+development with Java 8 compliance.
 
 Finally to use the predefined run/debug configurations with GradleStart you need
 to add `--noCoreSearch` to the list of program arguments in both server and
