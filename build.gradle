@@ -31,15 +31,17 @@ version = "0.9.3"
 def buildby = 'local'
 
 def ENV = System.getenv()
-if (ENV.BUILD_NUMBER) {
-	version += "." + ENV.BUILD_NUMBER
-	buildby = 'RS485-Jenkins'
+if (ENV.GITHUB_ACTIONS) {
+    if (!ENV.GIT_TAG) {
+        version += "." + ENV.GITHUB_RUN_NUMBER
+    }
+	buildby = 'yumetodo-github-actions'
 } else {
 	version += ".local"
 }
 
 group= "rs485.logisticspipes" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "logisticspipes"
+archivesBaseName = "logisticspipes-fy"
 
 ant.version = version
 ant.archivesBaseName = archivesBaseName
