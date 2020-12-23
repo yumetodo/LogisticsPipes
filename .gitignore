@@ -50,3 +50,5 @@ bin/
 .classpath
 
 api/*
+
+pat.txt

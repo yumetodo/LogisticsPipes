@@ -27,7 +27,7 @@ ant.importBuild 'build-ant.xml'
 apply plugin: 'forge'
 apply plugin: 'curseforge'
 
-version = "0.9.3"
+version = "0.9.4"
 def buildby = 'local'
 
 def ENV = System.getenv()
@@ -58,7 +58,7 @@ minecraft {
 
 jar {
     manifest {
-        attributes(	'FMLCorePlugin': 'logisticspipes.asm.LogisticsPipesCoreLoader', 
+        attributes(	'FMLCorePlugin': 'logisticspipes.asm.LogisticsPipesCoreLoader',
 					'FMLCorePluginContainsFMLMod': 'true',
 					'Implementation-Vendor': 'RS485',
 					'Implementation-Title': 'LogisticsPipes',
@@ -95,11 +95,11 @@ processResources {
     // replace stuff in mcmod.info, nothing else
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-        
+
         // replace version and mcversion
 		expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-        
+
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
@@ -127,7 +127,7 @@ task deobfJar(type: Jar, dependsOn: 'jar') {
 	from sourceSets.main.output
 	classifier = 'dev'
 	manifest {
-        attributes(	'FMLCorePlugin': 'logisticspipes.asm.LogisticsPipesCoreLoader', 
+        attributes(	'FMLCorePlugin': 'logisticspipes.asm.LogisticsPipesCoreLoader',
 					'FMLCorePluginContainsFMLMod': 'true',
 					'Implementation-Vendor': 'RS485',
 					'Implementation-Title': 'LogisticsPipes',
@@ -149,8 +149,8 @@ task sourceJar(type: Jar, dependsOn: 'jar') {
 }
 
 curse {
-	displayName = 'Logistics Pipes 0.9.3 (BC7) build ' + System.getenv().BUILD_NUMBER
-	
+	displayName = 'Logistics Pipes ' + version + ' (BC7) build'
+
     projectId = '232838'
     apiKey = project.hasProperty('curseForgeApiKey') ? project.curseForgeApiKey : ''
     releaseType = 'release'
@@ -185,3 +185,25 @@ tasks.compileApiJava.dependsOn('extract')
 tasks.compileJava.dependsOn('loadFingerprints')
 tasks.processResources.dependsOn('integrateLang')
 tasks.assemble.dependsOn('deobfJar', 'sourceJar', 'signJars')
+
+apply plugin: 'maven-publish'
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = 'https://maven.pkg.github.com/yumetodo/LogisticsPipes'
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+
+    publications {
+        gpr(MavenPublication) {
+            artifactId = archivesBaseName
+            from(components.java)
+        }
+    }
+}
